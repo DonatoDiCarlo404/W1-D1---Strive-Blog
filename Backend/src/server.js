@@ -16,7 +16,8 @@ const PORT = process.env.PORT || 3001
 
 // Middleware
 app.use(cors({
-    origin: [process.env.FRONTEND_URL || 'http://localhost:5173',
+    origin: [
+        'http://localhost:5173',
         'https://strive-blog-frontend-8pjhhu59j-donatodicarlos-projects.vercel.app'
     ],
     credentials: true,

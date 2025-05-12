@@ -18,7 +18,7 @@ passport.deserializeUser(async (id, done) => {
 passport.use(new GoogleStrategy({
     clientID: process.env.GOOGLE_CLIENT_ID,
     clientSecret: process.env.GOOGLE_CLIENT_SECRET,
-    callbackURL: "http://localhost:3001/auth/google/callback",
+    callbackURL: "https://strive-blog-2iak.onrender.com/auth/google/callback",
     passReqToCallback: true
 }, async (req, accessToken, refreshToken, profile, done) => {
     try {
@@ -30,24 +30,21 @@ passport.use(new GoogleStrategy({
         });
 
         if (!author) {
-            const randomPassword = require('crypto').randomBytes(32).toString('hex');
-
             author = new Author({
                 nome: profile.name.givenName,
                 cognome: profile.name.familyName,
                 email: profile.emails[0].value,
-                password: randomPassword,
+                password: 'google-auth-' + Math.random().toString(36).slice(-8),
                 avatar: profile.photos[0].value,
-                googleId: profile.id
+                googleId: profile.id,
+                dataDiNascita: new Date().toISOString().split('T')[0] // Data di default
             });
-            await author.save();
-        } else if (!author.googleId) {
-            author.googleId = profile.id;
             await author.save();
         }
 
         return done(null, author);
     } catch (error) {
+        console.error('Google Strategy Error:', error);
         return done(error, null);
     }
 }));
