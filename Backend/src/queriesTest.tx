@@ -1,0 +1,29 @@
+Risultati dei test per Mongo Compass
+
+1) Trova tutte le risorse con il dato isActive corrispondente a true.
+
+{ isActive: true }: 51 risultati trovati.
+
+2) Trova tutte le risorse con il dato Age maggiore di 26.
+
+{ age: { $gt: 26 } }: 54 risultati trovati.
+
+3) Trova tutte le risorse con il dato Age maggiore di 26 e minore o uguale a 30.
+
+{ age: { $gt: 26, $lte: 30 } }: 19 risultati trovati.
+
+4) Trova tutte le risorse con il dato eyes che sia brown o blue.
+
+{ eyeColor: { $in: ["brown", "blue"] } }: 66 risultati trovati.
+
+5) Trova tutte le risorse che non presentano il dato eyes uguale a green.
+
+{ eyeColor: { $ne: "green" } }: 66 risultati trovati.
+
+6) Trova tutte le risorse che non presentano il dato eyes uguale a green e neanche blue.
+
+{ eyeColor: { $nin: ["green", "blue"] } }: 35 risultati trovati.
+
+7) Trova tutte le risorse con il dato company uguale a "FITCORE" e ritorna solo l'email.
+
+{ company: "FITCORE" } nel campo Filter, { email: 1, _id: 0 } nel campo Project: 1 risultato trovato.

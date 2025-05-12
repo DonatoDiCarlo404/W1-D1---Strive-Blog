@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Strive Blog</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container mt-4">
+        <h1>Strive Blog</h1>
+        <div class="row mb-4">
+            <div class="col-md-6">
+                <div class="input-group">
+                    <input type="text" id="searchInput" class="form-control" placeholder="Cerca titolo...">
+                    <button class="btn btn-primary" id="searchButton">Cerca</button>
+                    <button class="btn btn-secondary" id="resetButton">Reset</button>
+                </div>
+            </div>
+        </div>
+        <div id="posts-container" class="row"></div>
+        <div class="mt-3">
+            <button id="prevPage" class="btn btn-primary">Precedente</button>
+            <span id="pageInfo" class="mx-3">Pagina 1</span>
+            <button id="nextPage" class="btn btn-primary">Successiva</button>
+        </div>
+    </div>
+
+    <script src="js/main.js"></script>
+</body>
+</html>
