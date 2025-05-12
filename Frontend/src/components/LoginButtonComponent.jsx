@@ -3,7 +3,7 @@ import { Button } from 'react-bootstrap';
 
 const GoogleLoginButton = () => {
   const handleGoogleLogin = () => {
-    window.location.href = "https://strive-blog-2iak.onrender.com/auth/google/callback";
+    window.location.href = "https://strive-blog-2iak.onrender.com/auth/google";
   };
 
   return (
